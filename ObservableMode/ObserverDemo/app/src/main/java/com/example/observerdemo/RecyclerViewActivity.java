@@ -19,18 +19,20 @@ public class RecyclerViewActivity extends AppCompatActivity {
         ListAdapter listAdapter = new ListAdapter();
         recyclerView.setAdapter(listAdapter);
         listAdapter.notifyDataSetChanged();
+        listAdapter.notifyItemChanged(12);
+        listAdapter.notifyItemRangeChanged(0, 1);
         recyclerView.getChildCount();
     }
 
-    private static class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHodle> {
+    private static class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
         @NonNull
         @Override
-        public ViewHodle onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
             return null;
         }
 
         @Override
-        public void onBindViewHolder(@NonNull RecyclerViewActivity.ListAdapter.ViewHodle holder, int position) {
+        public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
         }
 
@@ -39,9 +41,9 @@ public class RecyclerViewActivity extends AppCompatActivity {
             return 0;
         }
 
-        private class ViewHodle extends RecyclerView.ViewHolder {
+        private class ViewHolder extends RecyclerView.ViewHolder {
 
-            public ViewHodle(@NonNull View itemView) {
+            public ViewHolder(@NonNull View itemView) {
                 super(itemView);
             }
         }

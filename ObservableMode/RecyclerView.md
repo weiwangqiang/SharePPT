@@ -17,3 +17,9 @@ RecyclerViewDataObserver#onChanged 内部主要调用requestLayout 触发新的�
 
 Adapter#notifyItemRangeChanged与Adapter#notifyItemChanged 都是调用 AdapterDataObservable#notifyItemRangeChanged。
 最终调用RecyclerViewDataObserver#onItemRangeChanged。
+
+### OnLayout 
+
+调用dispatchLayout ，然后在dispatchLayoutStep2 中调用mLayout#onLayoutChildren，即对应的layoutManager#onLayoutChildren
+
+LinearLayoutManager#onLayoutChildren中

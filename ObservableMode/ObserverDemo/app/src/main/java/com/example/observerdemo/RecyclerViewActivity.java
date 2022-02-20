@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 public class RecyclerViewActivity extends AppCompatActivity {
 
-    private RecyclerView recyclerView;
+    private NewRecyclerView recyclerView;
 
     private static final String TAG = "RecyclerViewActivity";
 

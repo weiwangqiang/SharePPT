@@ -6,9 +6,9 @@
     android:layout_height="match_parent"
     tools:context=".RecyclerViewActivity">
 
-    <androidx.recyclerview.widget.RecyclerView
+    <com.example.observerdemo.NewRecyclerView
+        android:id="@+id/new_list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/new_list"/>
+        android:layout_height="match_parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

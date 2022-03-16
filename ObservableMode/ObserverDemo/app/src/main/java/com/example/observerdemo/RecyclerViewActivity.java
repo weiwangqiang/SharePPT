@@ -29,7 +29,6 @@ public class RecyclerViewActivity extends AppCompatActivity {
         listAdapter.notifyDataSetChanged();
         listAdapter.notifyItemChanged(12);
         listAdapter.notifyItemRangeChanged(0, 1);
-        recyclerView.getChildCount();
     }
 
     private static class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {

@@ -18,6 +18,5 @@ public class MainActivity extends AppCompatActivity {
         textView.setOnClickListener(v -> {
             Log.d(TAG, "onCreate: click ");
         });
-        Handler handler;
     }
 }

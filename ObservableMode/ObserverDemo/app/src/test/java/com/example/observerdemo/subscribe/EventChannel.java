@@ -6,7 +6,6 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.concurrent.BlockingDeque;
 import java.util.concurrent.LinkedBlockingDeque;
-import java.util.concurrent.TimeUnit;
 
 public class EventChannel<M> {
     private BlockingDeque<Event<M>> linkedBlockingDeque = new LinkedBlockingDeque<>();
@@ -41,7 +40,6 @@ public class EventChannel<M> {
     }
 
     public void cancel() {
-        System.out.println("cancel ");
         task.interrupt();
     }
 
@@ -57,5 +55,15 @@ public class EventChannel<M> {
         for (ISubscriber<M> subscriber : subscriberList) {
             subscriber.update(publisher, message);
         }
+    }
+
+    public static class Event<M> {
+        public Event(String publisher, M message) {
+            this.publisher = publisher;
+            this.message = message;
+        }
+
+        public String publisher;
+        public M message;
     }
 }

@@ -7,17 +7,21 @@ public class SubscriberTest {
     @Test
     public void subscriber() {
         EventChannel<String> eventEventChannel = new EventChannel<>();
-        Publisher publisherA = new Publisher("publish A");
-        Publisher publisherB = new Publisher("publish B");
+        Publisher publisherA = new Publisher("publisher A");
+        Publisher publisherB = new Publisher("publisher B");
 
         Subscriber subscriberA = new Subscriber("subscriber A");
         Subscriber subscriberB = new Subscriber("subscriber B");
 
-        eventEventChannel.subscriber(subscriberA);
-        eventEventChannel.subscriber(subscriberB);
+        eventEventChannel.subscriber(EventType.START.name(), subscriberA);
+        eventEventChannel.subscriber(EventType.END.name(), subscriberB);
 
-        publisherA.publish(eventEventChannel, "A Event");
-        publisherB.publish(eventEventChannel, "B Event");
+        publisherA.publish(eventEventChannel, EventType.START.name());
+        publisherB.publish(eventEventChannel, EventType.END.name());
         eventEventChannel.join();
+    }
+
+    private enum EventType {
+        START, END
     }
 }
